@@ -20,7 +20,6 @@ export declare type IProps = {
     getCurrentPinLength?: (length: number) => void;
     handleResultEnterPin?: any;
     iconComponentLockedPage?: any;
-    iconButtonDeleteDisabled?: boolean;
     lockedPage?: any;
     maxAttempts?: number;
     numbersButtonOverlayColor?: string;
@@ -63,8 +62,6 @@ export declare type IProps = {
     stylePinCodeColumnDeleteButton?: StyleProp<ViewStyle>;
     stylePinCodeDeleteButtonColorHideUnderlay?: string;
     stylePinCodeDeleteButtonColorShowUnderlay?: string;
-    stylePinCodeDeleteButtonIcon?: string;
-    stylePinCodeDeleteButtonSize?: number;
     stylePinCodeDeleteButtonText?: StyleProp<TextStyle>;
     stylePinCodeEmptyColumn?: StyleProp<ViewStyle>;
     stylePinCodeHiddenPasswordCircle?: StyleProp<ViewStyle>;
@@ -103,6 +100,7 @@ export declare type IProps = {
     touchIDSentence?: string;
     touchIDTitle?: string;
     validationRegex?: RegExp;
+    iconButtonDeleteComponent?: any;
 };
 export declare type IState = {
     internalPinStatus: PinResultStatus;

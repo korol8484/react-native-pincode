@@ -16,7 +16,6 @@ export declare type IProps = {
     emptyColumnComponent: any;
     finishProcess?: (pinCode: string) => void;
     getCurrentLength?: (length: number) => void;
-    iconButtonDeleteDisabled?: boolean;
     numbersButtonOverlayColor?: string;
     passwordComponent: any;
     passwordLength?: number;
@@ -39,8 +38,6 @@ export declare type IProps = {
     styleContainerPinCode?: StyleProp<ViewStyle>;
     styleDeleteButtonColorHideUnderlay?: string;
     styleDeleteButtonColorShowUnderlay?: string;
-    styleDeleteButtonIcon?: string;
-    styleDeleteButtonSize?: number;
     styleDeleteButtonText?: StyleProp<TextStyle>;
     styleEmptyColumn?: StyleProp<ViewStyle>;
     stylePinCodeCircle?: StyleProp<ViewStyle>;
@@ -62,6 +59,7 @@ export declare type IProps = {
     titleConfirmFailed?: string;
     titleValidationFailed?: string;
     validationRegex?: RegExp;
+    iconButtonDeleteComponent: any;
 };
 export declare type IState = {
     status: PinStatus;

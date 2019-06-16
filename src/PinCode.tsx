@@ -18,7 +18,6 @@ import {
   ViewStyle
 } from 'react-native'
 import { Col, Row, Grid } from 'react-native-easy-grid'
-import Icon from 'react-native-vector-icons/MaterialIcons'
 
 /**
  * Pin Code Component
@@ -36,7 +35,6 @@ export type IProps = {
   emptyColumnComponent: any
   endProcess: (pinCode: string, isErrorValidation?: boolean) => void
   getCurrentLength?: (length: number) => void
-  iconButtonDeleteDisabled?: boolean
   numbersButtonOverlayColor?: string
   passwordComponent?: any
   passwordLength: number
@@ -60,8 +58,6 @@ export type IProps = {
   styleContainer?: StyleProp<ViewStyle>
   styleDeleteButtonColorHideUnderlay?: string
   styleDeleteButtonColorShowUnderlay?: string
-  styleDeleteButtonIcon?: string
-  styleDeleteButtonSize?: number
   styleDeleteButtonText?: StyleProp<TextStyle>
   styleEmptyColumn?: StyleProp<ViewStyle>
   stylePinCodeCircle?: StyleProp<ViewStyle>
@@ -79,7 +75,8 @@ export type IProps = {
   titleComponent?: any
   titleConfirmFailed?: string
   titleValidationFailed?: string
-  validationRegex?: RegExp
+  validationRegex?: RegExp,
+  iconButtonDeleteComponent?: any
 }
 
 export type IState = {
@@ -467,22 +464,12 @@ class PinCode extends React.PureComponent<IProps, IState> {
               ? this.props.styleColumnDeleteButton
               : styles.colIcon
           }>
-          {!this.props.iconButtonDeleteDisabled && (
-            <Icon
-              name={
-                this.props.styleDeleteButtonIcon
-                  ? this.props.styleDeleteButtonIcon
-                  : 'backspace'
-              }
-              size={
-                this.props.styleDeleteButtonSize
-                  ? this.props.styleDeleteButtonSize
-                  : 30
-              }
-              color={this.state.colorDelete}
-              style={{ opacity: opacity }}
-            />
-          )}
+          {this.props.iconButtonDeleteComponent &&
+            this.props.iconButtonDeleteComponent({
+              opacity: opacity,
+              color: this.state.colorDelete
+            })
+          }
           <Text
             style={[
               this.props.styleDeleteButtonText
@@ -610,7 +597,12 @@ class PinCode extends React.PureComponent<IProps, IState> {
                 { opacity: opacity }
               ]}>
               {this.props.titleComponent
-                ? this.props.titleComponent()
+                ? this.props.titleComponent(
+                  colorTitle,
+                  opacityTitle,
+                  attemptFailed,
+                  showError
+                )
                 : this.renderTitle(
                     colorTitle,
                     opacityTitle,
@@ -618,7 +610,12 @@ class PinCode extends React.PureComponent<IProps, IState> {
                     showError
                   )}
               {this.props.subtitleComponent
-                ? this.props.subtitleComponent()
+                ? this.props.subtitleComponent(
+                  colorSubtitle,
+                  opacityTitle,
+                  attemptFailed,
+                  showError
+                )
                 : this.renderSubtitle(
                     colorSubtitle,
                     opacityTitle,

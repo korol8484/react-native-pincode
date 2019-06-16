@@ -9,7 +9,6 @@ const React = require("react");
 const Animate_1 = require("react-move/Animate");
 const react_native_1 = require("react-native");
 const react_native_easy_grid_1 = require("react-native-easy-grid");
-const MaterialIcons_1 = require("react-native-vector-icons/MaterialIcons");
 var PinStatus;
 (function (PinStatus) {
     PinStatus["choose"] = "choose";
@@ -222,11 +221,11 @@ class PinCode extends React.PureComponent {
                 React.createElement(react_native_1.View, { style: this.props.styleColumnDeleteButton
                         ? this.props.styleColumnDeleteButton
                         : styles.colIcon },
-                    !this.props.iconButtonDeleteDisabled && (React.createElement(MaterialIcons_1.default, { name: this.props.styleDeleteButtonIcon
-                            ? this.props.styleDeleteButtonIcon
-                            : 'backspace', size: this.props.styleDeleteButtonSize
-                            ? this.props.styleDeleteButtonSize
-                            : 30, color: this.state.colorDelete, style: { opacity: opacity } })),
+                    this.props.iconButtonDeleteComponent &&
+                        this.props.iconButtonDeleteComponent({
+                            opacity: opacity,
+                            color: this.state.colorDelete
+                        }),
                     React.createElement(react_native_1.Text, { style: [
                             this.props.styleDeleteButtonText
                                 ? this.props.styleDeleteButtonText
@@ -378,10 +377,10 @@ class PinCode extends React.PureComponent {
                     { opacity: opacity }
                 ] },
                 this.props.titleComponent
-                    ? this.props.titleComponent()
+                    ? this.props.titleComponent(colorTitle, opacityTitle, attemptFailed, showError)
                     : this.renderTitle(colorTitle, opacityTitle, attemptFailed, showError),
                 this.props.subtitleComponent
-                    ? this.props.subtitleComponent()
+                    ? this.props.subtitleComponent(colorSubtitle, opacityTitle, attemptFailed, showError)
                     : this.renderSubtitle(colorSubtitle, opacityTitle, attemptFailed, showError)))),
             React.createElement(react_native_1.View, { style: styles.flexCirclePassword }, this.props.passwordComponent
                 ? this.props.passwordComponent()

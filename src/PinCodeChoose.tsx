@@ -19,7 +19,6 @@ export type IProps = {
   emptyColumnComponent: any
   finishProcess?: (pinCode: string) => void
   getCurrentLength?: (length: number) => void
-  iconButtonDeleteDisabled?: boolean
   numbersButtonOverlayColor?: string
   passwordComponent: any
   passwordLength?: number
@@ -42,8 +41,6 @@ export type IProps = {
   styleContainerPinCode?: StyleProp<ViewStyle>
   styleDeleteButtonColorHideUnderlay?: string
   styleDeleteButtonColorShowUnderlay?: string
-  styleDeleteButtonIcon?: string
-  styleDeleteButtonSize?: number
   styleDeleteButtonText?: StyleProp<TextStyle>
   styleEmptyColumn?: StyleProp<ViewStyle>
   stylePinCodeCircle?: StyleProp<ViewStyle>
@@ -65,6 +62,7 @@ export type IProps = {
   titleConfirmFailed?: string
   titleValidationFailed?: string
   validationRegex?: RegExp
+  iconButtonDeleteComponent: any
 }
 
 export type IState = {
@@ -128,7 +126,6 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
             emptyColumnComponent={this.props.emptyColumnComponent}
             endProcess={this.endProcessCreation}
             getCurrentLength={this.props.getCurrentLength}
-            iconButtonDeleteDisabled={this.props.iconButtonDeleteDisabled}
             numbersButtonOverlayColor={
               this.props.numbersButtonOverlayColor || undefined
             }
@@ -158,8 +155,6 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
             styleDeleteButtonColorShowUnderlay={
               this.props.styleDeleteButtonColorShowUnderlay
             }
-            styleDeleteButtonIcon={this.props.styleDeleteButtonIcon}
-            styleDeleteButtonSize={this.props.styleDeleteButtonSize}
             styleDeleteButtonText={this.props.styleDeleteButtonText}
             styleEmptyColumn={this.props.styleEmptyColumn}
             stylePinCodeCircle={this.props.stylePinCodeCircle}
@@ -178,6 +173,7 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
               this.props.titleValidationFailed || 'PIN code unsafe'
             }
             validationRegex={this.props.validationRegex}
+            iconButtonDeleteComponent={this.props.iconButtonDeleteComponent || null}
           />
         )}
         {this.state.status === PinStatus.confirm && (
@@ -193,7 +189,6 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
             emptyColumnComponent={this.props.emptyColumnComponent}
             endProcess={this.endProcessConfirm}
             getCurrentLength={this.props.getCurrentLength}
-            iconButtonDeleteDisabled={this.props.iconButtonDeleteDisabled}
             numbersButtonOverlayColor={
               this.props.numbersButtonOverlayColor || undefined
             }
@@ -236,8 +231,6 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
             styleDeleteButtonColorShowUnderlay={
               this.props.styleDeleteButtonColorShowUnderlay
             }
-            styleDeleteButtonIcon={this.props.styleDeleteButtonIcon}
-            styleDeleteButtonSize={this.props.styleDeleteButtonSize}
             styleDeleteButtonText={this.props.styleDeleteButtonText}
             styleEmptyColumn={this.props.styleEmptyColumn}
             stylePinCodeCircle={this.props.stylePinCodeCircle}
@@ -246,6 +239,7 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
             styleTextSubtitle={this.props.styleTextSubtitle}
             styleTextTitle={this.props.styleTextTitle}
             styleViewTitle={this.props.styleViewTitle}
+            iconButtonDeleteComponent={this.props.iconButtonDeleteComponent || null}
           />
         )}
       </View>

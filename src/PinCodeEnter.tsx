@@ -34,7 +34,6 @@ export type IProps = {
   finishProcess?: (pinCode: string) => void
   getCurrentLength?: (length: number) => void
   handleResult: any
-  iconButtonDeleteDisabled?: boolean
   maxAttempts: number
   numbersButtonOverlayColor?: string
   onFail?: any
@@ -62,8 +61,6 @@ export type IProps = {
   styleContainerPinCode?: StyleProp<ViewStyle>
   styleDeleteButtonColorHideUnderlay?: string
   styleDeleteButtonColorShowUnderlay?: string
-  styleDeleteButtonIcon?: string
-  styleDeleteButtonSize?: number
   styleDeleteButtonText?: StyleProp<TextStyle>
   styleEmptyColumn?: StyleProp<ViewStyle>
   stylePinCodeCircle?: StyleProp<ViewStyle>
@@ -86,6 +83,7 @@ export type IProps = {
   touchIDDisabled: boolean
   touchIDSentence: string
   touchIDTitle?: string
+  iconButtonDeleteComponent: any
 }
 
 export type IState = {
@@ -242,7 +240,6 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
           emptyColumnComponent={this.props.emptyColumnComponent}
           endProcess={this.endProcess}
           getCurrentLength={this.props.getCurrentLength}
-          iconButtonDeleteDisabled={this.props.iconButtonDeleteDisabled}
           numbersButtonOverlayColor={
             this.props.numbersButtonOverlayColor || undefined
           }
@@ -274,8 +271,6 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
           styleDeleteButtonColorShowUnderlay={
             this.props.styleDeleteButtonColorShowUnderlay
           }
-          styleDeleteButtonIcon={this.props.styleDeleteButtonIcon}
-          styleDeleteButtonSize={this.props.styleDeleteButtonSize}
           styleDeleteButtonText={this.props.styleDeleteButtonText}
           styleEmptyColumn={this.props.styleEmptyColumn}
           stylePinCodeCircle={this.props.stylePinCodeCircle}
@@ -296,6 +291,7 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
           titleConfirmFailed={
             this.props.titleConfirmFailed || 'Your entries did not match'
           }
+          iconButtonDeleteComponent={this.props.iconButtonDeleteComponent || null}
         />
       </View>
     )

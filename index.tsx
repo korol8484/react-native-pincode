@@ -26,7 +26,6 @@ export type IProps = {
   getCurrentPinLength?: (length: number) => void
   handleResultEnterPin?: any
   iconComponentLockedPage?: any
-  iconButtonDeleteDisabled?: boolean
   lockedPage?: any
   maxAttempts?: number
   numbersButtonOverlayColor?: string
@@ -69,8 +68,6 @@ export type IProps = {
   stylePinCodeColumnDeleteButton?: StyleProp<ViewStyle>
   stylePinCodeDeleteButtonColorHideUnderlay?: string
   stylePinCodeDeleteButtonColorShowUnderlay?: string
-  stylePinCodeDeleteButtonIcon?: string
-  stylePinCodeDeleteButtonSize?: number
   stylePinCodeDeleteButtonText?: StyleProp<TextStyle>
   stylePinCodeEmptyColumn?: StyleProp<ViewStyle>
   stylePinCodeHiddenPasswordCircle?: StyleProp<ViewStyle>
@@ -108,7 +105,8 @@ export type IProps = {
   touchIDDisabled?: boolean
   touchIDSentence?: string
   touchIDTitle?: string
-  validationRegex?: RegExp
+  validationRegex?: RegExp,
+  iconButtonDeleteComponent?: any
 }
 
 export type IState = {
@@ -173,7 +171,8 @@ class PINCode extends React.PureComponent<IProps, IState> {
         timePinLockedAsyncStorageName={this.props.timePinLockedAsyncStorageName || timePinLockedAsyncStorageNameDefault}
         timerComponent={this.props.timerComponentLockedPage || null}
         timeToLock={this.props.timeLocked || 300000}
-        titleComponent={this.props.titleComponentLockedPage || undefined}/>
+        titleComponent={this.props.titleComponentLockedPage || undefined}
+        />
     );
   };
 
@@ -193,7 +192,6 @@ class PINCode extends React.PureComponent<IProps, IState> {
           emptyColumnComponent={this.props.bottomLeftComponent}
           finishProcess={this.props.finishProcess}
           getCurrentLength={this.props.getCurrentPinLength}
-          iconButtonDeleteDisabled={this.props.iconButtonDeleteDisabled}
           numbersButtonOverlayColor={this.props.numbersButtonOverlayColor}
           passwordComponent={this.props.passwordComponent}
           passwordLength={this.props.passwordLength}
@@ -216,8 +214,6 @@ class PINCode extends React.PureComponent<IProps, IState> {
           styleContainerPinCode={this.props.stylePinCodeMainContainer}
           styleDeleteButtonColorHideUnderlay={this.props.stylePinCodeDeleteButtonColorHideUnderlay}
           styleDeleteButtonColorShowUnderlay={this.props.stylePinCodeDeleteButtonColorShowUnderlay}
-          styleDeleteButtonIcon={this.props.stylePinCodeDeleteButtonIcon}
-          styleDeleteButtonSize={this.props.stylePinCodeDeleteButtonSize}
           styleDeleteButtonText={this.props.stylePinCodeDeleteButtonText}
           styleEmptyColumn={this.props.stylePinCodeEmptyColumn}
           stylePinCodeCircle={this.props.stylePinCodeCircle}
@@ -239,6 +235,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
           titleConfirmFailed={this.props.titleConfirmFailed}
           titleValidationFailed={this.props.titleValidationFailed}
           validationRegex={this.props.validationRegex}
+          iconButtonDeleteComponent={this.props.iconButtonDeleteComponent || undefined}
         />}
         {status === PinStatus.enter &&
         <PinCodeEnter
@@ -257,7 +254,6 @@ class PINCode extends React.PureComponent<IProps, IState> {
           finishProcess={this.props.finishProcess}
           getCurrentLength={this.props.getCurrentPinLength}
           handleResult={this.props.handleResultEnterPin || null}
-          iconButtonDeleteDisabled={this.props.iconButtonDeleteDisabled}
           maxAttempts={this.props.maxAttempts || 3}
           numbersButtonOverlayColor={this.props.numbersButtonOverlayColor}
           onFail={this.props.onFail || null}
@@ -285,8 +281,6 @@ class PINCode extends React.PureComponent<IProps, IState> {
           styleContainerPinCode={this.props.stylePinCodeMainContainer}
           styleDeleteButtonColorHideUnderlay={this.props.stylePinCodeDeleteButtonColorHideUnderlay}
           styleDeleteButtonColorShowUnderlay={this.props.stylePinCodeDeleteButtonColorShowUnderlay}
-          styleDeleteButtonIcon={this.props.stylePinCodeDeleteButtonIcon}
-          styleDeleteButtonSize={this.props.stylePinCodeDeleteButtonSize}
           styleDeleteButtonText={this.props.stylePinCodeDeleteButtonText}
           styleEmptyColumn={this.props.stylePinCodeEmptyColumn}
           stylePinCodeCircle={this.props.stylePinCodeCircle}
@@ -309,6 +303,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
           touchIDDisabled={this.props.touchIDDisabled || touchIDDisabledDefault}
           touchIDSentence={this.props.touchIDSentence || "To unlock your application"}
           touchIDTitle={this.props.touchIDTitle || touchIDTitleDefault}
+          iconButtonDeleteComponent={this.props.iconButtonDeleteComponent || undefined}
         />}
         {(pinStatus === PinResultStatus.locked ||
           this.state.internalPinStatus === PinResultStatus.locked ||
