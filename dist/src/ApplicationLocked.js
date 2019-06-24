@@ -62,18 +62,7 @@ class ApplicationLocked extends React.PureComponent {
                         : `To protect your information, access has been locked for ${Math.ceil(this.props.timeToLock / 1000 / 60)} minutes.`),
                     React.createElement(react_native_1.Text, { style: this.props.styleText ? this.props.styleText : styles.text }, this.props.textSubDescription
                         ? this.props.textSubDescription
-                        : 'Come back later and try again.')))),
-                React.createElement(Animate_1.default, { show: true, start: {
-                        opacity: 0
-                    }, enter: {
-                        opacity: [1],
-                        timing: { delay: 2000, duration: 1500, ease: d3_ease_1.easeLinear }
-                    } }, (state) => (React.createElement(react_native_1.View, { style: { opacity: state.opacity, flex: 1 } },
-                    React.createElement(react_native_1.View, { style: this.props.styleViewButton
-                            ? this.props.styleViewButton
-                            : styles.viewCloseButton }, this.props.buttonComponent
-                        ? this.props.buttonComponent()
-                        : this.renderButton()))))));
+                        : 'Come back later and try again.'))))));
         };
         this.state = {
             timeDiff: 0
@@ -151,7 +140,8 @@ const styles = react_native_1.StyleSheet.create({
         color: colors_1.colors.base,
         opacity: grid_1.grid.mediumOpacity,
         fontWeight: '200',
-        marginBottom: grid_1.grid.unit * 4
+        marginBottom: grid_1.grid.unit * 4,
+        textAlign: 'center'
     },
     viewIcon: {
         width: grid_1.grid.unit * 4,
