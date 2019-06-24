@@ -194,30 +194,6 @@ class ApplicationLocked extends React.PureComponent<IProps, IState> {
             </View>
           )}
         </Animate>
-        <Animate
-          show={true}
-          start={{
-            opacity: 0
-          }}
-          enter={{
-            opacity: [1],
-            timing: { delay: 2000, duration: 1500, ease: easeLinear }
-          }}>
-          {(state: any) => (
-            <View style={{ opacity: state.opacity, flex: 1 }}>
-              <View
-                style={
-                  this.props.styleViewButton
-                    ? this.props.styleViewButton
-                    : styles.viewCloseButton
-                }>
-                {this.props.buttonComponent
-                  ? this.props.buttonComponent()
-                  : this.renderButton()}
-              </View>
-            </View>
-          )}
-        </Animate>
       </View>
     )
   }
@@ -274,7 +250,8 @@ const styles = StyleSheet.create({
     color: colors.base,
     opacity: grid.mediumOpacity,
     fontWeight: '200',
-    marginBottom: grid.unit * 4
+    marginBottom: grid.unit * 4,
+    textAlign: 'center'
   },
   viewIcon: {
     width: grid.unit * 4,
