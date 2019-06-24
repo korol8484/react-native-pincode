@@ -14,7 +14,6 @@ import {
   Text,
   Platform
 } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons'
 
 export type IProps = {
   timeToLock: number
@@ -146,21 +145,6 @@ class ApplicationLocked extends React.PureComponent<IProps, IState> {
     )
   }
 
-  renderIcon = () => {
-    return (
-      <View
-        style={
-          this.props.styleViewIcon ? this.props.styleViewIcon : styles.viewIcon
-        }>
-        <Icon
-          name={this.props.nameIcon ? this.props.nameIcon : 'lock'}
-          size={this.props.sizeIcon ? this.props.sizeIcon : 24}
-          color={this.props.colorIcon ? this.props.colorIcon : colors.white}
-        />
-      </View>
-    )
-  }
-
   renderErrorLocked = () => {
     const minutes = Math.floor(this.state.timeDiff / 1000 / 60)
     const seconds = Math.floor(this.state.timeDiff / 1000) % 60
@@ -189,9 +173,6 @@ class ApplicationLocked extends React.PureComponent<IProps, IState> {
               {this.props.timerComponent
                 ? this.props.timerComponent()
                 : this.renderTimer(minutes, seconds)}
-              {this.props.iconComponent
-                ? this.props.iconComponent()
-                : this.renderIcon()}
               <Text
                 style={
                   this.props.styleText ? this.props.styleText : styles.text

@@ -42,7 +42,6 @@ declare class ApplicationLocked extends React.PureComponent<IProps, IState> {
     renderButton: () => JSX.Element;
     renderTimer: (minutes: number, seconds: number) => JSX.Element;
     renderTitle: () => JSX.Element;
-    renderIcon: () => JSX.Element;
     renderErrorLocked: () => JSX.Element;
     render(): JSX.Element;
 }
