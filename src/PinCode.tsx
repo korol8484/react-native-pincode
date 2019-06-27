@@ -66,6 +66,7 @@ export type IProps = {
   styleTextSubtitle?: StyleProp<TextStyle>
   styleTextTitle?: StyleProp<TextStyle>
   styleViewTitle?: StyleProp<ViewStyle>
+  styleFlexCirclePassword?: StyleProp<ViewStyle>
   subtitle: string
   subtitleComponent?: any
   subtitleError: string
@@ -625,7 +626,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
             </View>
           )}
         </Animate>
-        <View style={styles.flexCirclePassword}>
+        <View style={this.props.styleFlexCirclePassword ? this.props.styleFlexCirclePassword : styles.flexCirclePassword}>
           {this.props.passwordComponent
             ? this.props.passwordComponent()
             : this.renderCirclePassword()}

@@ -57,6 +57,7 @@ export declare type IProps = {
     styleTextSubtitle?: StyleProp<TextStyle>;
     styleTextTitle?: StyleProp<TextStyle>;
     styleViewTitle?: StyleProp<ViewStyle>;
+    styleFlexCirclePassword?: StyleProp<ViewStyle>;
     subtitle: string;
     subtitleComponent: any;
     subtitleError?: string;

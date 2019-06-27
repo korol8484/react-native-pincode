@@ -69,6 +69,7 @@ export type IProps = {
   styleTextSubtitle?: StyleProp<TextStyle>
   styleTextTitle?: StyleProp<TextStyle>
   styleViewTitle?: StyleProp<ViewStyle>
+  styleFlexCirclePassword?: StyleProp<ViewStyle>
   subtitle: string
   subtitleComponent: any
   subtitleError?: string
@@ -279,6 +280,7 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
           styleTextSubtitle={this.props.styleTextSubtitle}
           styleTextTitle={this.props.styleTextTitle}
           styleViewTitle={this.props.styleViewTitle}
+          styleFlexCirclePassword={this.props.styleFlexCirclePassword}
           subtitle={this.props.subtitle}
           subtitleComponent={this.props.subtitleComponent || null}
           subtitleError={this.props.subtitleError || 'Please try again'}

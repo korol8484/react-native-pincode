@@ -79,6 +79,7 @@ export type IProps = {
   stylePinCodeTextSubtitle?: StyleProp<TextStyle>
   stylePinCodeTextTitle?: StyleProp<TextStyle>
   stylePinCodeViewTitle?: StyleProp<TextStyle>
+  styleFlexCirclePassword?: StyleProp<TextStyle>
   subtitleChoose?: string
   subtitleComponent?: any
   subtitleConfirm?: string
@@ -222,6 +223,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
           styleTextSubtitle={this.props.stylePinCodeTextSubtitle}
           styleTextTitle={this.props.stylePinCodeTextTitle}
           styleViewTitle={this.props.stylePinCodeViewTitle}
+          styleFlexCirclePassword={this.props.styleFlexCirclePassword}
           subtitleChoose={this.props.subtitleChoose || "to keep your information secure"}
           subtitleComponent={this.props.subtitleComponent}
           subtitleConfirm={this.props.subtitleConfirm || ""}
@@ -266,6 +268,7 @@ class PINCode extends React.PureComponent<IProps, IState> {
           status={PinStatus.enter}
           storedPin={this.props.storedPin || null}
           styleButtonCircle={this.props.stylePinCodeButtonCircle}
+          styleFlexCirclePassword={this.props.styleFlexCirclePassword}
           styleCircleHiddenPassword={this.props.stylePinCodeHiddenPasswordCircle}
           styleCircleSizeEmpty={this.props.stylePinCodeHiddenPasswordSizeEmpty}
           styleCircleSizeFull={this.props.stylePinCodeHiddenPasswordSizeFull}
