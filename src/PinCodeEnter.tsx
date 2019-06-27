@@ -198,7 +198,7 @@ class PinCodeEnter extends React.PureComponent<IProps, IState> {
       sensorDescription: 'Touch sensor',
       sensorErrorDescription: 'Failed',
       cancelText: this.props.textCancelButtonTouchID || 'Cancel',
-      fallbackLabel: 'Show Passcode',
+      fallbackLabel: '',
       unifiedErrors: false,
       passcodeFallback: true
     }
