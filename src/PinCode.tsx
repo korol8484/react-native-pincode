@@ -471,17 +471,6 @@ class PinCode extends React.PureComponent<IProps, IState> {
               color: this.state.colorDelete
             })
           }
-          <Text
-            style={[
-              this.props.styleDeleteButtonText
-                ? this.props.styleDeleteButtonText
-                : styles.textDeleteButton,
-              { color: this.state.colorDelete, opacity: opacity }
-            ]}>
-            {this.props.buttonDeleteText
-              ? this.props.buttonDeleteText
-              : textDeleteButtonDefault}
-          </Text>
         </View>
       </TouchableHighlight>
     )

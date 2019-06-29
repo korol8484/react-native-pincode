@@ -220,20 +220,11 @@ class PinCode extends React.PureComponent {
                 } },
                 React.createElement(react_native_1.View, { style: this.props.styleColumnDeleteButton
                         ? this.props.styleColumnDeleteButton
-                        : styles.colIcon },
-                    this.props.iconButtonDeleteComponent &&
-                        this.props.iconButtonDeleteComponent({
-                            opacity: opacity,
-                            color: this.state.colorDelete
-                        }),
-                    React.createElement(react_native_1.Text, { style: [
-                            this.props.styleDeleteButtonText
-                                ? this.props.styleDeleteButtonText
-                                : styles.textDeleteButton,
-                            { color: this.state.colorDelete, opacity: opacity }
-                        ] }, this.props.buttonDeleteText
-                        ? this.props.buttonDeleteText
-                        : textDeleteButtonDefault))));
+                        : styles.colIcon }, this.props.iconButtonDeleteComponent &&
+                    this.props.iconButtonDeleteComponent({
+                        opacity: opacity,
+                        color: this.state.colorDelete
+                    }))));
         };
         this.renderTitle = (colorTitle, opacityTitle, attemptFailed, showError) => {
             return (React.createElement(react_native_1.Text, { style: [
