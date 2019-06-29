@@ -435,6 +435,7 @@ class PinCode extends React.PureComponent<IProps, IState> {
   renderButtonDelete = (opacity: number) => {
     return (
       <TouchableHighlight
+        style={styles.buttonCircleDelete}
         disabled={this.state.password.length === 0}
         underlayColor="transparent"
         onHideUnderlay={() =>
@@ -813,6 +814,10 @@ let styles = StyleSheet.create({
     height: grid.unit * 4,
     backgroundColor: 'rgb(242, 245, 251)',
     borderRadius: grid.unit * 2
+  },
+  buttonCircleDelete: {
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   textTitle: {
     fontSize: 20,

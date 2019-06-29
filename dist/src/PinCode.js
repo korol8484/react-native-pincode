@@ -202,7 +202,7 @@ class PinCode extends React.PureComponent {
             })));
         };
         this.renderButtonDelete = (opacity) => {
-            return (React.createElement(react_native_1.TouchableHighlight, { disabled: this.state.password.length === 0, underlayColor: "transparent", onHideUnderlay: () => this.setState({
+            return (React.createElement(react_native_1.TouchableHighlight, { style: styles.buttonCircleDelete, disabled: this.state.password.length === 0, underlayColor: "transparent", onHideUnderlay: () => this.setState({
                     colorDelete: this.props.styleDeleteButtonColorHideUnderlay
                         ? this.props.styleDeleteButtonColorHideUnderlay
                         : 'rgb(211, 213, 218)'
@@ -488,6 +488,10 @@ let styles = react_native_1.StyleSheet.create({
         height: grid_1.grid.unit * 4,
         backgroundColor: 'rgb(242, 245, 251)',
         borderRadius: grid_1.grid.unit * 2
+    },
+    buttonCircleDelete: {
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     textTitle: {
         fontSize: 20,
