@@ -817,7 +817,9 @@ let styles = StyleSheet.create({
   },
   buttonCircleDelete: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: grid.unit * 4,
+    height: grid.unit * 4,
   },
   textTitle: {
     fontSize: 20,
