@@ -84,7 +84,7 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
       pinCode: isErrorValidation ? '' : pinCode,
       status: isErrorValidation ? PinStatus.choose : PinStatus.confirm
     })
-  }
+  };
 
   endProcessConfirm = async (pinCode: string) => {
     if (pinCode === this.state.pinCode) {
@@ -101,11 +101,11 @@ class PinCodeChoose extends React.PureComponent<IProps, IState> {
     } else {
       this.setState({ status: PinStatus.choose })
     }
-  }
+  };
 
   cancelConfirm = () => {
     this.setState({ status: PinStatus.choose })
-  }
+  };
 
   render() {
     return (
@@ -258,4 +258,4 @@ let styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   }
-})
+});

@@ -61,13 +61,19 @@ class PinCodeEnter extends React.PureComponent {
     }
     async componentWillMount() {
         if (!this.props.storedPin) {
-            const result = await Keychain.getInternetCredentials(this.props.pinCodeKeychainName);
-            this.keyChainResult = result.password || undefined;
+            this.keyChainResult = undefined;
+            await Keychain.getInternetCredentials(this.props.pinCodeKeychainName).then(credentials => {
+                if (credentials) {
+                    this.keyChainResult = credentials.password;
+                }
+            }).catch(reason => {
+            });
         }
     }
     componentDidMount() {
-        if (!this.props.touchIDDisabled)
+        if (!this.props.touchIDDisabled) {
             this.triggerTouchID();
+        }
     }
     componentDidUpdate(prevProps, prevState, prevContext) {
         if (prevProps.pinStatusExternal !== this.props.pinStatusExternal) {
